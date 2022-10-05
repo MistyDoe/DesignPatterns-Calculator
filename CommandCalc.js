@@ -53,3 +53,18 @@ var Calculator = function () {
         }
     }
 }
+
+function run() {
+
+    var calculator = new Calculator();
+
+    calculator.execute(new AddCommand(100));
+    calculator.execute(new SubCommand(24));
+    calculator.execute(new MulCommand(6));
+    calculator.execute(new DivCommand(2));
+
+    calculator.undo();
+    calculator.undo();
+
+    console.log("\nValue: " + calculator.getCurrentValue());
+}
