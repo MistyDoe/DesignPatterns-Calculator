@@ -6,7 +6,7 @@ function validation(num) {
 }
 
 class Calculator {
-	constructor(props) {
+	constructor() {
 		this.result = 0;
 	}
 
