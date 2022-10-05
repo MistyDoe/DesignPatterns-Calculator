@@ -17,35 +17,29 @@ var Command = function (execute, value) {
 };
 
 var AddCommand = function (value) {
-	return new Command(add, sub, value);
+	return new Command(add, value);
 };
 
 var SubCommand = function (value) {
-	return new Command(sub, add, value);
+	return new Command(sub, value);
 };
 
 var MulCommand = function (value) {
-	return new Command(mul, div, value);
+	return new Command(mul, value);
 };
 
 var DivCommand = function (value) {
-	return new Command(div, mul, value);
+	return new Command(div, value);
 };
 
 var Calculator = function () {
 	var current = 0;
 	var commands = [];
 
-	function action(command) {
-		var name = command.execute.toString().substr(9, 3);
-		return name.charAt(0).toUpperCase() + name.slice(1);
-	}
-
 	return {
 		execute: function (command) {
 			current = command.execute(current, command.value);
 			commands.push(command);
-			console.log(action(command) + " : " + command.value);
 		},
 
 		getCurrentValue: function () {
@@ -54,12 +48,9 @@ var Calculator = function () {
 	};
 };
 
-function run() {
-	var calculator = new Calculator();
+var calculator = new Calculator();
+calculator.execute(new AddCommand(5));
+calculator.execute(new MulCommand(3));
+calculator.execute(new SubCommand(5));
 
-	calculator.execute(new AddCommand(5));
-	calculator.execute(new MultCommand(3));
-	calculator.execute(new SubCommand(5));
-
-	console.log("\nValue: " + calculator.getCurrentValue());
-}
+console.log("\nResut: " + calculator.getCurrentValue());
