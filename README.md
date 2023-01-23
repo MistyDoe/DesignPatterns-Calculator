@@ -1,9 +1,9 @@
 # DesignPatterns
 
 ## Description
-A shoer demosntation of some fdesign patterns using calculator as a subject. 
+A short demonstration of some design patterns using a calculator as a subject
 
-## Authors 
+## Authors 
 
 @MistyDoe
 @Anara5
